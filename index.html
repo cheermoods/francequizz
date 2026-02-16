@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>QCM Carte</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<!-- Bouton Accueil global -->
+<button id="homeBtn" class="home hidden" title="Retour à l'accueil">
+    🏠
+</button>
+
+
+<!-- ETAPE 1 -->
+<div id="quizTypeMenu" class="menu">
+    <h2>Choisissez le type de quizz</h2>
+    <button data-file="questionsresident.js">Carte Résident</button>
+    <button data-file="questionspluriannuel.js">Carte Pluriannuel</button>
+</div>
+
+<!-- ETAPE 2 -->
+<div id="modeMenu" class="menu hidden">
+    <h2>Choisissez le mode du QCM</h2>
+    <button id="randomBtn">Aléatoire</button>
+    <button id="themeBtn">Par thématique</button>
+</div>
+
+<!-- ETAPE 3 -->
+<div id="themeMenu" class="menu hidden">
+    <h2>Choisissez un thème</h2>
+    <div id="themeOptions"></div>
+</div>
+
+<!-- ETAPE 4 -->
+<div id="quizContainer" class="hidden">
+
+    <div class="header">
+        <div id="progress"></div>
+        <div id="timer"></div>
+    </div>
+
+    <div id="category"></div>
+    <div id="question"></div>
+    <div id="answers"></div>
+
+    <div class="controls">
+        <button id="validateBtn">Valider</button>
+        <button id="nextBtn">Suivant</button>
+    </div>
+
+
+    <div id="explanation" class="hidden"></div>
+    <div id="result" class="hidden"></div>
+
+</div>
+
+<!-- Conteneur résultat final -->
+<div id="resultContainer" class="hidden">
+    <h2>Résultat final</h2>
+    <div class="result-score">
+        <span id="scoreCircle"></span>
+    </div>
+    <div id="resultCategory"></div>
+    <div id="resultText"></div>
+</div>
+
+
+</body>
+</html>
