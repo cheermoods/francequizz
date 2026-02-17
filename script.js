@@ -199,6 +199,7 @@ function startQuiz() {
     let errors = 0;
     const maxErrors = 5;
 
+    const menuQuizType = document.getElementById("quizTypeMenu");
     const spanProgress = document.getElementById("progress");
     const spanTimer = document.getElementById("timer");
     const divCategory = document.getElementById("category");
@@ -316,32 +317,58 @@ function startQuiz() {
     };
 
     function showResult() {
-
+        // Arrêter le timer
         clearInterval(timerInterval);
 
+        // Masquer le quiz et afficher le conteneur résultat
         containerQuiz.classList.add("hidden");
         containerResult.classList.remove("hidden");
 
-        document.getElementById("scoreCircle").textContent =
-            `${score} / ${currentQuizQuestions.length}`;
+        // Afficher le score
+        const scoreText = `${score} / ${currentQuizQuestions.length}`;
+        document.getElementById("scoreCircle").textContent = scoreText;
 
+        // Afficher la catégorie ou mode vie
         document.getElementById("resultCategory").textContent =
             lifeModeActive ? "Mode Vie ❤️" : "Quiz classique";
 
-        const history =
-            JSON.parse(localStorage.getItem("quizHistory")) || [];
+        // =========================
+        // ENREGISTRER L'HISTORIQUE
+        // =========================
+        let history = JSON.parse(localStorage.getItem("quizHistory")) || [];
 
+        // Ajouter le résultat actuel
         history.push({
             date: new Date().toLocaleString(),
-            score: `${score} / ${currentQuizQuestions.length}`
+            score: scoreText,
+            mode: lifeModeActive ? "Mode Vie ❤️" : "Quiz classique"
         });
 
         localStorage.setItem("quizHistory", JSON.stringify(history));
 
+        // Mettre à jour l'état du bouton "Supprimer historique"
+        updateClearButtonState();
+
+        // =========================
+        // MESSAGE MOTIVATION
+        // =========================
         document.getElementById("resultText").textContent =
             score >= currentQuizQuestions.length * 0.7
                 ? "🔥 Excellent travail !"
                 : "💪 Continuez !";
+
+        // =========================
+        // BOUTON "Retour à l'accueil"
+        // =========================
+        const backBtn = document.getElementById("backHomeAfterResult");
+
+        // Vérifier que le bouton existe
+        if (backBtn) {
+            backBtn.onclick = () => {
+                containerResult.classList.add("hidden");
+                menuQuizType.classList.remove("hidden"); // revenir au menu principal
+            };
+        }
     }
 
     showQuestion();
@@ -356,7 +383,40 @@ btnHome.onclick = resetUI;
 // NETTOYAGE HISTORIQUE
 // ======================================================
 
-document.getElementById("clearHistoryBtn").onclick = () => {
+const clearBtn = document.getElementById("clearHistoryBtn");
+
+function hasHistory() {
+    const history = localStorage.getItem("quizHistory");
+
+    if (!history) return false;
+
+    try {
+        const parsed = JSON.parse(history);
+        return Array.isArray(parsed) && parsed.length > 0;
+    } catch (e) {
+        return false;
+    }
+}
+
+function updateClearButtonState() {
+    if (hasHistory()) {
+        clearBtn.disabled = false;
+        clearBtn.style.opacity = "1";
+        clearBtn.title = "Supprimer l'historique";
+    } else {
+        clearBtn.disabled = true;
+        clearBtn.style.opacity = "0.4";
+        clearBtn.title = "Aucun historique";
+    }
+}
+updateClearButtonState();
+
+clearBtn.onclick = () => {
+
+    if (!hasHistory()) {
+        alert("Aucun historique à supprimer.");
+        return;
+    }
 
     const confirmDelete = confirm("Supprimer tout l'historique ?");
 
@@ -365,4 +425,10 @@ document.getElementById("clearHistoryBtn").onclick = () => {
     localStorage.removeItem("quizHistory");
 
     alert("Historique supprimé ✅");
+
+    updateClearButtonState();
 };
+
+// Vérifie au chargement
+updateClearButtonState();
+
