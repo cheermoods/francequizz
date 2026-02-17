@@ -1,3 +1,6 @@
+/* =========================
+   RESET
+========================= */
 * {
     box-sizing: border-box;
 }
@@ -6,57 +9,82 @@ body {
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #e0f2fe, #fce7f3);
     margin: 0;
-    padding: 40px 0;
+    padding: 120px 20px 40px 20px; /* espace pour la top bar */
 }
 
-/* CONTENEUR PRINCIPAL */
-.menu,
-#quizContainer {
-    max-width: 750px;
-    margin: auto;
-    background: white;
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    text-align: center;
-}
 
-/* BOUTON HOME */
-.home {
+/* =========================
+   ACTION BAR (TOP FIXED)
+========================= */
+.action-bar {
     position: fixed;
-    top: 20px;
-    left: 20px;
-    width: 42px;
-    height: 42px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    z-index: 1000;
+}
+
+.action-bar button {
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     border: none;
-    background: white;
+    background: #f1f5f9;
     font-size: 20px;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     transition: 0.2s;
 }
 
-.home:hover {
+.action-bar button:hover {
     transform: scale(1.1);
-    background: #f1f5f9;
 }
 
-/* TITRES */
+
+/* =========================
+   CONTAINERS
+========================= */
+.menu,
+#quizContainer,
+#resultContainer {
+    max-width: 750px;
+    margin: auto;
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   TITRES
+========================= */
 h2 {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    font-size: 22px;
 }
 
-/* BOUTONS GENERAUX */
+
+/* =========================
+   BOUTONS GENERAUX
+========================= */
 button {
-    padding: 10px 18px;
-    margin: 8px;
+    padding: 14px 22px;
+    margin: 10px;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     background: #6366f1;
     color: white;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 15px;
     transition: 0.2s ease;
 }
 
@@ -70,7 +98,10 @@ button:disabled {
     cursor: not-allowed;
 }
 
-/* HEADER */
+
+/* =========================
+   HEADER
+========================= */
 .header {
     display: flex;
     justify-content: space-between;
@@ -78,117 +109,126 @@ button:disabled {
     font-weight: bold;
 }
 
-/* CATEGORY */
+
+/* =========================
+   CATEGORY
+========================= */
 #category {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     font-size: 14px;
     background: #f1f5f9;
-    padding: 8px;
-    border-radius: 6px;
+    padding: 10px;
+    border-radius: 10px;
 }
 
-/* QUESTION */
+
+/* =========================
+   QUESTION
+========================= */
 #question {
-    font-size: 18px;
-    margin-bottom: 15px;
+    font-size: 20px;
+    margin-bottom: 20px;
 }
 
-/* ANSWERS */
+
+/* =========================
+   ANSWERS
+========================= */
 #answers label {
     display: block;
     background: #f8fafc;
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 8px;
+    padding: 14px;
+    margin: 10px 0;
+    border-radius: 12px;
     cursor: pointer;
     transition: 0.2s;
     text-align: left;
+    font-size: 15px;
 }
 
 #answers label:hover {
     background: #eef2ff;
 }
 
-/* BONNE REPONSE */
+
+/* =========================
+   CORRECT / INCORRECT
+========================= */
 .correct {
     color: green;
-    border: 1px solid rgb(50, 216, 50);
-    border-radius: 6px;
-    padding: 4px;
+    border: 2px solid rgb(50, 216, 50);
+    border-radius: 10px;
+    padding: 6px;
 }
 
-/* MAUVAISE REPONSE */
 .incorrect {
     color: red;
-    border: 1px solid rgb(205, 60, 60);
-    border-radius: 6px;
-    padding: 4px;
+    border: 2px solid rgb(205, 60, 60);
+    border-radius: 10px;
+    padding: 6px;
 }
 
-/* CONTROLS (Valider / Suivant toujours visibles) */
+
+/* =========================
+   CONTROLS
+========================= */
 .controls {
-    margin-top: 20px;
+    margin-top: 25px;
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
 }
 
-/* EXPLICATION */
+
+/* =========================
+   EXPLANATION
+========================= */
 #explanation {
-    margin-top: 15px;
-    padding: 12px;
+    margin-top: 20px;
+    padding: 15px;
     background: #fef9c3;
-    border-radius: 8px;
+    border-radius: 12px;
 }
 
-/* RESULTAT */
+
+/* =========================
+   RESULT
+========================= */
 #result {
     margin-top: 20px;
     font-size: 18px;
     font-weight: bold;
     background: #e0f2fe;
     padding: 15px;
-    border-radius: 8px;
-}
-
-/* HIDDEN */
-.hidden {
-    display: none  ;
-}
-
-#resultContainer {
-    max-width: 500px;
-    margin: 50px auto;
-    text-align: center;
-    background: #fefefe;
-    padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.result-score {
-    margin: 20px 0;
-}
 
+/* =========================
+   SCORE CIRCLE
+========================= */
 #scoreCircle {
     display: inline-block;
-    width: 80px;
-    height: 80px;
-    line-height: 80px;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
     border-radius: 50%;
     background: #2563eb;
     color: white;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
 }
 
-/* PROGRESS BAR */
+
+/* =========================
+   PROGRESS BAR
+========================= */
 .progressBarContainer {
     width: 100%;
-    height: 18px;
+    height: 20px;
     background: #eee;
     border-radius: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     overflow: hidden;
 }
 
@@ -200,48 +240,86 @@ button:disabled {
 
 #flagProgress {
     position: absolute;
-    top: -8px;
+    top: -6px;
     left: 0;
-    width: 28px;
+    width: 30px;
     transition: left 0.4s ease;
 }
 
-#historyBtn {
-    position: fixed;
-    top: 20px;
-    left: 80px; /* décale à droite du home */
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    border: none;
-    background: white;
-    font-size: 18px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: 0.2s;
+
+/* =========================
+   HIDDEN
+========================= */
+.hidden {
+    display: none;
 }
 
-#historyBtn:hover {
-    transform: scale(1.1);
-    background: #f1f5f9;
+
+/* =====================================================
+   TABLET VERSION (max 1024px)
+===================================================== */
+@media (max-width: 1024px) {
+
+    .menu,
+    #quizContainer,
+    #resultContainer {
+        max-width: 90%;
+        padding: 30px;
+    }
+
+    button {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .controls {
+        flex-direction: column;
+    }
 }
 
-#clearHistoryBtn {
-    position: fixed;
-    top: 20px;
-    left: 140px;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    border: none;
-    background: white;
-    font-size: 18px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: 0.2s;
-}
 
-#clearHistoryBtn:hover {
-    transform: scale(1.1);
-    background: #fee2e2;
+/* =====================================================
+   MOBILE VERSION (max 600px)
+===================================================== */
+@media (max-width: 600px) {
+
+    body {
+        padding: 110px 15px 30px 15px;
+    }
+
+    .action-bar {
+        height: 70px;
+        gap: 15px;
+    }
+
+    .action-bar button {
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+    }
+
+    .menu,
+    #quizContainer,
+    #resultContainer {
+        padding: 25px;
+        border-radius: 16px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    #question {
+        font-size: 18px;
+    }
+
+    #answers label {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 12px;
+    }
+
 }
