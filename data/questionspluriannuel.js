@@ -1,4 +1,4 @@
-questions = [
+window.questions = [
 
 {
 category: "Principes et valeurs de la République",

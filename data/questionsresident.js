@@ -1,4 +1,4 @@
-questions = [
+window.questions = [
 
 {
 category: "Principes et valeurs de la République",
@@ -2511,6 +2511,19 @@ explanation: "Les vacances scolaires de Noël ont lieu généralement entre fin 
 
 {
 category: "Vivre dans la société française",
+question: "À l'école, un enfant en situation de handicap :",
+answers: [
+"Ne peut pas être scolarisé",
+"Doit obligatoirement rester à domicile",
+"Peut bénéficier d’un accompagnement adapté",
+"Est exclu des activités scolaires"
+],
+correct: [2],
+explanation: "Un enfant en situation de handicap peut être scolarisé et bénéficier d’un accompagnement adapté selon ses besoins."
+},
+
+{
+category: "sdbfbes",
 question: "À l'école, un enfant en situation de handicap :",
 answers: [
 "Ne peut pas être scolarisé",

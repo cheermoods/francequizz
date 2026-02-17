@@ -9,16 +9,27 @@
 <body>
 
 <!-- Bouton Accueil global -->
-<button id="homeBtn" class="home hidden" title="Retour à l'accueil">
+<button id="homeBtn" class="home" title="Retour à l'accueil">
     🏠
+</button>
+
+<button id="historyBtn" title="Historique"> 
+    📊
+</button>
+
+<button id="clearHistoryBtn">
+    🚮
 </button>
 
 
 <!-- ETAPE 1 -->
 <div id="quizTypeMenu" class="menu">
     <h2>Choisissez le type de quizz</h2>
-    <button data-file="questionsresident.js">Carte Résident</button>
-    <button data-file="questionspluriannuel.js">Carte Pluriannuel</button>
+
+    <button data-file="data/questionsresident.js">Carte Résident</button>
+    <button data-file="data/questionspluriannuel.js">Carte Pluriannuel</button>
+    <button id="lifeModeBtn">Mode Vie ❤️</button>
+
 </div>
 
 <!-- ETAPE 2 -->
@@ -37,6 +48,12 @@
 <!-- ETAPE 4 -->
 <div id="quizContainer" class="hidden">
 
+    <div class="progressBarContainer">
+        <div class="progressTrack">
+            <img src="https://flagcdn.com/w40/fr.png" id="flagProgress">
+        </div>
+    </div>
+    
     <div class="header">
         <div id="progress"></div>
         <div id="timer"></div>
