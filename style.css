@@ -7,27 +7,46 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #e0f2fe, #fce7f3);
+    background: #0a1f44; /* mode nuit Pixel */
+    color: #e0eaff;
     margin: 0;
-    padding: 120px 20px 40px 20px; /* espace pour la top bar */
+    padding: 20px;
 }
 
+/* =========================
+   CONTAINERS
+========================= */
+.menu,
+#quizContainer,
+#resultContainer {
+    width: 700px; /* largeur fixe desktop */
+    max-width: 90%; /* responsive */
+    margin: 20px auto;
+    background: #1c2a50; /* conteneur nuit */
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    text-align: center;
+    color: #e0eaff;
+}
+
+/* titres */
+h2 {
+    margin-bottom: 15px;
+    font-size: 22px;
+}
 
 /* =========================
-   ACTION BAR (TOP FIXED)
+   ACTION BAR
 ========================= */
 .action-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    background: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    gap: 15px;
+    background: #152b5b;
+    padding: 10px;
+    border-radius: 12px;
     z-index: 1000;
 }
 
@@ -36,49 +55,84 @@ body {
     height: 48px;
     border-radius: 50%;
     border: none;
-    background: #f1f5f9;
+    background: #2a3f70;
+    color: #fff;
     font-size: 20px;
     cursor: pointer;
     transition: 0.2s;
 }
 
-.action-bar button:hover {
+.action-bar button:hover:not(:disabled) {
+    background: #3d5fa3;
     transform: scale(1.1);
 }
 
-
 /* =========================
-   CONTAINERS
+   HEADER
 ========================= */
-.menu,
-#quizContainer,
-#resultContainer {
-    max-width: 750px;
-    margin: auto;
-    background: white;
-    padding: 35px;
-    border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-    text-align: center;
-    margin-bottom: 30px;
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
-
-/* =========================
-   TITRES
-========================= */
-h2 {
-    margin-bottom: 25px;
-    font-size: 22px;
+/* category */
+#category {
+    margin-bottom: 10px;
+    font-size: 18px;
+    background: #23395b;
+    padding: 8px;
+    border-radius: 10px;
+    font-weight: bold;      
+    text-transform: uppercase; 
 }
 
+/* question */
+#question {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* answers */
+#answers label {
+    display: block;
+    background: #2f4a80;
+    padding: 10px;
+    margin: 6px 0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+    text-align: left;
+    font-size: 15px;
+    color: #e0eaff;
+}
+
+#answers label:hover {
+    background: #4361b0;
+}
+
+/* correct/incorrect */
+.correct {
+    color: #00ffaa;
+    border: 2px solid #00ffaa;
+    padding: 6px;
+    border-radius: 10px;
+}
+
+.incorrect {
+    color: #ff6b6b;
+    border: 2px solid #ff6b6b;
+    padding: 6px;
+    border-radius: 10px;
+}
 
 /* =========================
    BOUTONS GENERAUX
 ========================= */
 button {
-    padding: 14px 22px;
-    margin: 10px;
+    padding: 12px 20px;
+    margin: 6px 0;
     border: none;
     border-radius: 12px;
     background: #6366f1;
@@ -88,149 +142,80 @@ button {
     transition: 0.2s ease;
 }
 
-button:hover {
+button:hover:not(:disabled) {
     background: #4f46e5;
     transform: translateY(-2px);
 }
 
 button:disabled {
-    background: #cbd5e1;
+    background: #435a8c;
     cursor: not-allowed;
+    color: #b0c4e0;
+    transform: none;
 }
-
 
 /* =========================
-   HEADER
-========================= */
-.header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-
-/* =========================
-   CATEGORY
-========================= */
-#category {
-    margin-bottom: 15px;
-    font-size: 18px;
-    background: #f1f5f9;
-    padding: 10px;
-    border-radius: 10px;
-    font-weight: bold;      
-    text-transform: uppercase; 
-}
-
-
-/* =========================
-   QUESTION
-========================= */
-#question {
-    font-size: 20px;
-    margin-bottom: 20px;
-}
-
-
-/* =========================
-   ANSWERS
-========================= */
-#answers label {
-    display: block;
-    background: #f8fafc;
-    padding: 14px;
-    margin: 10px 0;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: 0.2s;
-    text-align: left;
-    font-size: 15px;
-}
-
-#answers label:hover {
-    background: #eef2ff;
-}
-
-
-/* =========================
-   CORRECT / INCORRECT
-========================= */
-.correct {
-    color: green;
-    border: 2px solid rgb(50, 216, 50);
-    border-radius: 10px;
-    padding: 6px;
-}
-
-.incorrect {
-    color: red;
-    border: 2px solid rgb(205, 60, 60);
-    border-radius: 10px;
-    padding: 6px;
-}
-
-
-/* =========================
-   CONTROLS
+   CONTROLS (Valider / Suivant)
 ========================= */
 .controls {
-    margin-top: 25px;
+    margin-top: 10px;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 10px;
 }
 
+.controls button {
+    flex: 1 1 120px;
+    font-size: 16px;
+}
 
 /* =========================
    EXPLANATION
 ========================= */
 #explanation {
-    margin-top: 20px;
-    padding: 15px;
-    background: #fef9c3;
+    margin-top: 10px;
+    padding: 12px;
+    background: #23395b;
     border-radius: 12px;
+    font-size: 15px;
 }
-
 
 /* =========================
    RESULT
 ========================= */
 #result {
-    margin-top: 20px;
-    font-size: 18px;
+    margin-top: 10px;
+    font-size: 16px;
     font-weight: bold;
-    background: #e0f2fe;
-    padding: 15px;
+    background: #2a3f70;
+    padding: 12px;
     border-radius: 12px;
 }
-
 
 /* =========================
    SCORE CIRCLE
 ========================= */
 #scoreCircle {
     display: inline-block;
-    width: 100px;
-    height: 100px;
-    line-height: 100px;
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
     border-radius: 50%;
-    background: #2563eb;
+    background: #4f66d0;
     color: white;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: bold;
 }
-
 
 /* =========================
    PROGRESS BAR
 ========================= */
 .progressBarContainer {
     width: 100%;
-    height: 15px;
-    background: #eee;
+    height: 12px;
+    background: #3d5fa3;
     border-radius: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     overflow: hidden;
 }
 
@@ -242,12 +227,11 @@ button:disabled {
 
 #flagProgress {
     position: absolute;
-    top: -6px;
+    top: -5px;
     left: 0;
-    width: 30px;
+    width: 28px;
     transition: left 0.4s ease;
 }
-
 
 /* =========================
    HIDDEN
@@ -256,72 +240,88 @@ button:disabled {
     display: none;
 }
 
-
-/* =====================================================
-   TABLET VERSION (max 1024px)
-===================================================== */
-@media (max-width: 1024px) {
-
-    .menu,
-    #quizContainer,
-    #resultContainer {
-        max-width: 90%;
-        padding: 30px;
-    }
-
-    button {
-        width: 100%;
-        margin: 10px 0;
-    }
-
-    .controls {
-        flex-direction: column;
-    }
-}
-
-
-/* =====================================================
-   MOBILE VERSION (max 600px)
-===================================================== */
-@media (max-width: 600px) {
-
+/* =========================
+   LAYOUT DESKTOP (≥1025px)
+========================= */
+@media(min-width:1025px) {
     body {
-        padding: 110px 15px 30px 15px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 20px;
     }
 
     .action-bar {
-        height: 70px;
-        gap: 15px;
+        flex-direction: column;
+        position: fixed;
+        top: 50%;
+        left: 20px;
+        transform: translateY(-50%);
+        margin: 0;
     }
 
-    .action-bar button {
-        width: 44px;
-        height: 44px;
-        font-size: 18px;
+    .menu button,
+    #themeOptions button {
+        display: block;
+        width: 100%;
+        margin: 8px 0;
     }
 
-    .menu,
-    #quizContainer,
-    #resultContainer {
-        padding: 25px;
-        border-radius: 16px;
+    .controls button {
+        flex: none;
+        width: 140px;
+    }
+}
+
+/* =========================
+   TABLET / MOBILE
+========================= */
+@media(max-width:1024px) {
+    body {
+        display: block;
+        padding-bottom: 80px; /* espace pour barre fixe bottom */
     }
 
-    h2 {
-        font-size: 18px;
+    .action-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        background: #152b5b;
+        padding: 10px 0;
+        border-radius: 0;
     }
 
-    #question {
-        font-size: 18px;
+    .menu button,
+    #themeOptions button {
+        display: block;
+        width: 100%;
+        margin: 8px 0;
     }
 
-    #answers label {
-        font-size: 14px;
+    .controls {
+        flex-direction: row;
+        justify-content: space-around;
     }
 
-    button {
-        font-size: 14px;
-        padding: 12px;
+    .controls button {
+        flex: 1 1 48%;
+    }
+}
+
+/* =========================
+   MOBILE VERSION (max 600px)
+========================= */
+@media(max-width:600px) {
+    body {
+        padding: 15px 0 80px 0; /* espace bas pour barre */
     }
 
+    h2 { font-size: 18px; }
+    #question { font-size: 16px; }
+    #answers label { font-size: 14px; }
+    #explanation { font-size: 14px; padding: 10px; }
+    button { font-size: 14px; padding: 12px; }
 }
