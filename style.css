@@ -21,7 +21,7 @@ body {
 #resultContainer {
     width: 700px; /* largeur fixe desktop */
     max-width: 90%; /* responsive */
-    margin: 20px auto;
+    margin: 0px auto;
     background: #1c2a50; /* conteneur nuit */
     padding: 30px;
     border-radius: 20px;
@@ -96,21 +96,33 @@ h2 {
 
 /* answers */
 #answers label {
-    display: block;
+    display: flex;           /* flex pour aligner case + texte */
+    align-items: center;     /* centre verticalement la case et le texte */
+    gap: 16px;               /* espace entre case et texte */
     background: #2f4a80;
-    padding: 14px;
+    padding: 5px;
     margin: 8px 0;
     border-radius: 12px;
     cursor: pointer;
-    transition: 0.2s;
-    text-align: left;
-    font-size: 18px; /* senior readable */
+    font-size: 18px;         /* senior-readable */
     color: #e0eaff;
+    line-height: 1.4;        /* pour multi-ligne confortable */
+    word-break: break-word;   /* texte long passe à la ligne */
 }
 
+/* checkbox / radio size */
+#answers input[type="radio"],
+#answers input[type="checkbox"] {
+    flex-shrink: 0;           /* ne réduit pas la taille de la case */
+    width: 28px;
+    height: 28px;
+}
+
+/* hover reste sur le label */
 #answers label:hover {
     background: #4361b0;
 }
+
 
 /* correct/incorrect */
 .correct {
@@ -132,7 +144,7 @@ h2 {
 ========================= */
 button {
     padding: 16px 24px;
-    margin: 8px 0;
+    margin: 0;
     border: none;
     border-radius: 14px;
     background: #6366f1;
@@ -167,7 +179,7 @@ button:disabled {
 .controls button {
     flex: 1 1 140px;
     font-size: 18px; /* senior readable */
-    padding: 14px 20px;
+    padding: 5px 20px;
 }
 
 /* =========================
@@ -275,13 +287,17 @@ button:disabled {
     }
 }
 
+#resultCategory, #resultText {
+        margin: 20px 0;
+    }
+
 /* =========================
-   TABLET / MOBILE DOUBLÉ
+   TABLET / MOBILE SENIOR-FRIENDLY (max 1024px)
 ========================= */
 @media(max-width:1024px) {
     body {
         display: block;
-        padding-bottom: 140px; /* espace pour barre fixe bottom */
+        padding-bottom: 120px; /* espace bas pour barre fixe */
     }
 
     .action-bar {
@@ -292,111 +308,179 @@ button:disabled {
         flex-direction: row;
         justify-content: space-around;
         background: #152b5b;
-        padding: 20px 0;
+        padding: 16px 0;
         border-radius: 0;
-    }
-
-    .action-bar button {
-        width: 96px;    /* doublé */
-        height: 96px;   /* doublé */
-        font-size: 40px; /* doublé */
+        z-index: 1000;
     }
 
     .menu button,
     #themeOptions button {
         display: block;
         width: 100%;
-        margin: 16px 0; 
-        font-size: 36px;  /* doublé */
-        padding: 28px 0;  /* doublé */
+        margin: 12px 0;
+        font-size: 45px;    /* min 45px */
+        padding: 24px 0;
+        line-height: 1.4;
         white-space: normal;
         word-break: break-word;
-        line-height: 1.4;
     }
 
     .controls {
         flex-direction: row;
         justify-content: space-around;
         gap: 16px;
+        margin-top: 20px;
     }
 
     .controls button {
         flex: 1 1 48%;
-        font-size: 36px;   /* doublé */
-        padding: 36px 0;   /* doublé */
-        white-space: normal;
-        word-break: break-word;
-        line-height: 1.4;
-    }
-
-    #category, #question, #explanation, #result {
-        font-size: 40px;   /* doublé */
-    }
-
-    #answers label {
-        font-size: 36px;   /* doublé */
-        padding: 28px;     /* doublé */
-    }
-}
-
-/* =========================
-   MOBILE VERSION (max 600px) DOUBLÉ
-========================= */
-@media(max-width:600px) {
-    body {
-        padding: 20px 0 160px 0; /* plus d'espace bas pour barre fixe */
-    }
-
-    h2 {
-        font-size: 44px; /* doublé */
-        margin-bottom: 25px;
-    }
-
-    #question {
-        font-size: 44px; /* doublé */
-        margin-bottom: 20px;
-    }
-
-    #answers label {
-        font-size: 36px; /* doublé */
-        padding: 28px;   /* doublé */
-        margin: 12px 0;
-        line-height: 1.4;
-    }
-
-    #explanation {
-        font-size: 36px; /* doublé */
-        padding: 28px;   /* doublé */
-    }
-
-    #result {
-        font-size: 36px; /* doublé */
-        padding: 28px;   /* doublé */
-    }
-
-    button {
-        font-size: 36px;   /* doublé */
-        padding: 32px 0;   /* doublé */
-    }
-
-    .controls button {
-        font-size: 36px;   /* doublé */
-        padding: 36px 0;   /* doublé */
-        flex: 1 1 48%;
+        font-size: 45px;   /* min 45px */
+        padding: 32px 0;
         line-height: 1.3;
         white-space: normal;
         word-break: break-word;
     }
 
-    .action-bar button {
-        width: 120px;    /* doublé */
-        height: 120px;   /* doublé */
-        font-size: 52px; /* doublé */
+    #category,
+    #question,
+    #explanation,
+    #result,
+    #progress,
+    #timer {
+        font-size: 45px;  /* min 45px */
+        text-align: left; /* tout aligné à gauche pour lisibilité */
     }
 
     #category {
-        font-size: 36px; /* doublé */
-        padding: 20px;
+        text-align: center;
+    }
+
+    #answers label {
+        display: flex;          /* case + texte */
+        align-items: center;    /* centré verticalement */
+        justify-content: flex-start; /* texte aligné à gauche, pas centré */
+        gap: 20px;              /* espace case-texte */
+        font-size: 45px;
+        padding: 24px;
+        margin: 12px 0;
+        line-height: 1.4;
+        word-break: break-word;
+        text-align: left;
+    }
+
+    #answers input[type="radio"],
+    #answers input[type="checkbox"] {
+        flex-shrink: 0;
+        width: 50px;
+        height: 50px;
+    }
+
+    .menu,
+    #quizContainer,
+    #resultContainer {
+        width: 95%;
+        max-width: 95%;
+        margin: 10px auto;
+        padding: 30px;
+    }
+
+    .action-bar button {
+        width: 80px;
+        height: 80px;
+        font-size: 45px;
+    }
+
+    /* H2 et titre résultat */
+    h2 {
+        font-size: 52px;    /* doublé */
+        margin-bottom: 30px;
+    }
+
+    #resultContainer #backHomeAfterResult {
+        font-size: 52px;
+        padding: 32px 20px;
+    }
+
+    #resultCategory, #resultText {
+        font-size: 40px;
+        margin: 30px 0;
+    }
+
+    #scoreCircle {
+        width: 160px;       /* agrandi */
+        height: 160px;      /* agrandi */
+        line-height: 160px; /* centrer verticalement le texte */
+        font-size: 52px;    /* texte plus lisible */
     }
 }
 
+/* =========================
+   MOBILE FULLSCREEN SENIOR (max 600px)
+========================= */
+@media(max-width:600px) {
+    body {
+        padding: 0 0 160px 0; /* espace bas pour barre fixe */
+    }
+
+    .menu,
+    #quizContainer,
+    #resultContainer {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 40px;
+        border-radius: 16px;
+    }
+
+    h2 {
+        font-size: 104px;    /* doublé encore / min 45px */
+        margin-bottom: 40px;
+    }
+
+    #progress,
+    #timer,
+    #category,
+    #question,
+    #explanation,
+    #result {
+        font-size: 104px;   /* doublé */
+        text-align: left;
+    }
+
+    #answers label {
+        font-size: 104px;
+        padding: 48px;
+        margin: 20px 0;
+        line-height: 1.5;
+        justify-content: flex-start; /* texte aligné à gauche */
+    }
+
+    #answers input[type="radio"],
+    #answers input[type="checkbox"] {
+        width: 80px;
+        height: 80px;
+    }
+
+    .controls button {
+        font-size: 104px;
+        padding: 80px 0;
+    }
+
+    .action-bar button {
+        width: 160px;
+        height: 160px;
+        font-size: 104px;
+    }
+
+    #resultContainer #backHomeAfterResult {
+        font-size: 104px;
+        padding: 48px 0;
+    }
+
+    #scoreCircle {
+        width: 160px;       /* agrandi */
+        height: 160px;      /* agrandi */
+        line-height: 160px; /* centrer verticalement le texte */
+        font-size: 52px;    /* texte plus lisible */
+    }
+}
