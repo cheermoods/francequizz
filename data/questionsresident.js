@@ -1172,6 +1172,201 @@ explanation: "L’Allemagne (RFA à l’époque) est l’un des six pays fondate
 
 {
 category: "Droits et devoirs",
+question: "À quelle liberté la PMA fait-elle référence ?",
+answers: [
+"Liberté économique",
+"Liberté de conscience et droit à l'autonomie personnelle",
+"Droit à l'éducation",
+"Droit de vote"
+],
+correct: [1],
+explanation: "La PMA (procréation médicalement assistée) relève de la liberté de conscience et du droit à l’autonomie personnelle, permettant aux individus de recourir à une assistance médicale pour avoir un enfant."
+},
+
+{
+category: "Droits et devoirs",
+question: "Au nom de quoi l'État justifie-t-il la restriction des droits ?",
+answers: [
+"Au nom de l'intérêt général et de la sécurité publique",
+"Pour augmenter les revenus fiscaux",
+"Pour favoriser certains groupes sociaux",
+"Pour la popularité des gouvernants"
+],
+correct: [0],
+explanation: "L'État peut restreindre certains droits dans le cadre de la loi, uniquement pour protéger l’intérêt général, la sécurité publique, la santé ou l’ordre public."
+},
+
+{
+category: "Droits et devoirs",
+question: "Concernant le droit de se marier, quelle proposition est correcte ?",
+answers: [
+"Le mariage est réservé aux couples hétérosexuels",
+"Le mariage est un droit pour toute personne majeure, avec consentement libre et éclairé",
+"Le mariage peut être imposé par les parents",
+"Le mariage est obligatoire à 18 ans"
+],
+correct: [1],
+explanation: "En France, toute personne majeure peut se marier librement avec son consentement. Le mariage forcé est interdit."
+},
+
+{
+category: "Droits et devoirs",
+question: "Est-il toujours possible de divorcer ?",
+answers: [
+"Oui, à tout moment, mais uniquement par consentement mutuel",
+"Oui, sous conditions légales prévues par le Code civil",
+"Non, le divorce est interdit après 10 ans de mariage",
+"Non, le divorce n’est jamais possible"
+],
+correct: [1],
+explanation: "Le divorce est possible en France selon les procédures prévues par le Code civil, que ce soit par consentement mutuel ou pour faute."
+},
+
+{
+category: "Droits et devoirs",
+question: "La peine de mort est :",
+answers: [
+"Autorisee uniquement pour les crimes graves",
+"Interdite par la loi française",
+"Obligatoire en cas de meurtre",
+"Décidée par référendum"
+],
+correct: [1],
+explanation: "La peine de mort est abolie en France depuis 1981 et interdite par la Constitution."
+},
+
+{
+category: "Droits et devoirs",
+question: "Laquelle de ces citations est inscrite dans la Déclaration des Droits de l'homme et du Citoyen de 1789 ?",
+answers: [
+"La liberté consiste à pouvoir faire tout ce qui ne nuit pas à autrui",
+"Le travail est la clé du bonheur",
+"Le respect de l'État prime sur les droits individuels",
+"L'obéissance est la première vertu du citoyen"
+],
+correct: [0],
+explanation: "La Déclaration de 1789 définit la liberté comme la possibilité de faire tout ce qui ne nuit pas à autrui, garantissant l’égalité des droits."
+},
+
+{
+category: "Droits et devoirs",
+question: "Le recours à l'avortement est-il autorisé ?",
+answers: [
+"Oui, dans le respect de la législation française",
+"Non, il est interdit en toutes circonstances",
+"Oui, seulement pour des raisons religieuses",
+"Oui, mais uniquement après accord parental"
+],
+correct: [0],
+explanation: "L’avortement est légal en France dans les conditions définies par la loi, notamment dans un cadre médical et sécuritaire."
+},
+
+{
+category: "Droits et devoirs",
+question: "Que contient la Constitution ?",
+answers: [
+"Les règles fondamentales organisant l’État et garantissant les droits",
+"Uniquement les lois fiscales",
+"Les décisions de justice récentes",
+"Les règlements municipaux"
+],
+correct: [0],
+explanation: "La Constitution définit les règles fondamentales du fonctionnement de l’État et garantit les droits et libertés des citoyens."
+},
+
+{
+category: "Droits et devoirs",
+question: "Que garantit la liberté de la presse ?",
+answers: [
+"Le droit de publier des informations dans le respect de la loi",
+"Le droit de diffamer librement",
+"Le droit de censurer les informations officielles",
+"Le droit d’imposer des opinions aux lecteurs"
+],
+correct: [0],
+explanation: "La liberté de la presse permet de publier des informations et opinions librement, mais sous réserve du respect des lois, notamment contre la diffamation."
+},
+
+{
+category: "Droits et devoirs",
+question: "Que prévoit la Charte de l'environnement ?",
+answers: [
+"Le droit à un environnement sain et la protection des ressources naturelles",
+"L’obligation de consommer local",
+"L’interdiction de toute activité industrielle",
+"Le contrôle des opinions environnementales des citoyens"
+],
+correct: [0],
+explanation: "La Charte de l’environnement garantit le droit à un environnement sain et impose aux pouvoirs publics la protection des ressources naturelles."
+},
+
+{
+category: "Droits et devoirs",
+question: "Que signifie la dignité humaine ?",
+answers: [
+"Le respect de la personne et de ses droits fondamentaux",
+"La supériorité de certains individus",
+"Le droit de décider pour autrui",
+"L'obéissance stricte aux autorités"
+],
+correct: [0],
+explanation: "La dignité humaine implique que toute personne doit être respectée et protégée dans ses droits fondamentaux, sans discrimination."
+},
+
+{
+category: "Droits et devoirs",
+question: "Que signifie le droit de manifester ?",
+answers: [
+"Le droit d’exprimer publiquement ses opinions dans le respect de la loi",
+"Le droit de bloquer la circulation librement",
+"Le droit de provoquer des désordres publics",
+"Le droit de refuser toute autorisation administrative"
+],
+correct: [0],
+explanation: "Le droit de manifester permet d’exprimer ses opinions publiquement mais dans le cadre légal, afin de ne pas troubler l’ordre public."
+},
+
+{
+category: "Droits et devoirs",
+question: "Que signifie PMA ?",
+answers: [
+"Protocole Médical Avancé",
+"Procréation Médicalement Assistée",
+"Plan de Mobilité Administrative",
+"Protection Maternelle et Autorité"
+],
+correct: [1],
+explanation: "La PMA désigne la procréation médicalement assistée, c’est-à-dire l’aide médicale à la conception pour les couples ou personnes concernées."
+},
+
+{
+category: "Droits et devoirs",
+question: "Quel texte est le plus difficile à modifier ?",
+answers: [
+"Un décret ministériel",
+"La Constitution",
+"Une loi ordinaire",
+"Un règlement municipal"
+],
+correct: [1],
+explanation: "La Constitution est le texte fondamental de l’État et sa modification est très encadrée et plus difficile que celle d’une loi ordinaire ou d’un décret."
+},
+
+{
+category: "Droits et devoirs",
+question: "Quelle liberté permet à une personne de croire en la religion de son choix ?",
+answers: [
+"La liberté de conscience",
+"La liberté d’expression",
+"La liberté de circulation",
+"La liberté de réunion"
+],
+correct: [0],
+explanation: "La liberté de conscience garantit à chacun le droit de croire, de ne pas croire ou de choisir sa religion librement."
+},
+
+{
+category: "Droits et devoirs",
 question: "Qu'est-ce que le droit de grève ?",
 answers: [
 "La possibilité de manifester sans prévenir",
