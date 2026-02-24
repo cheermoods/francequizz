@@ -2717,6 +2717,7 @@ correct: [2],
 explanation: "Un enfant en situation de handicap peut être scolarisé et bénéficier d’un accompagnement adapté selon ses besoins."
 },
 
+/*
 {
 category: "sdbfbes",
 question: "À l'école, un enfant en situation de handicap :",
@@ -2729,5 +2730,6 @@ answers: [
 correct: [2],
 explanation: "Un enfant en situation de handicap peut être scolarisé et bénéficier d’un accompagnement adapté selon ses besoins."
 }
+*/
 
 ];
