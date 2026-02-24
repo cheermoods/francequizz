@@ -115,7 +115,7 @@ document.getElementById("lifeModeBtn").onclick = async () => {
     btnHome.classList.remove("hidden");
 
     lifeModeActive = true;
-    currentQuizQuestions = shuffleArray(global).slice(0, 50);
+    currentQuizQuestions = shuffleArray(global);
 
     startQuiz();
 };
@@ -185,6 +185,26 @@ btnHistory.onclick = () => {
 };
 
 // ======================================================
+// Badge
+// ======================================================
+
+function getLifeBadge(score) {
+    if (score >= 75) {
+        return "🔥 God Level";
+    } else if (score >= 65) {
+        return "🏆 Maître";
+    } else if (score >= 50) {
+        return "🥇 Expert";
+    } else if (score >= 35) {
+        return "🥈 Avancé";
+    } else if (score >= 20) {
+        return "🥉 Intermédiaire";
+    } else {
+        return "🎯 Débutant";
+    }
+}
+
+// ======================================================
 // QUIZ PRINCIPAL
 // ======================================================
 function startQuiz() {
@@ -231,10 +251,14 @@ function startQuiz() {
             correct: q.correct.includes(i)
         }));
 
-        spanProgress.textContent =
-            `Question ${currentIndex + 1} / ${currentQuizQuestions.length}`;
+        if (lifeModeActive) {
+            spanProgress.textContent = `${score} bonnes réponses`;
+        } else {
+            spanProgress.textContent =
+                `Question ${currentIndex + 1} / ${currentQuizQuestions.length}`;
+        }
 
-        spanTimer.textContent = "Temps restant : 20s";
+        spanTimer.textContent = "Temps restant : 30s";
 
         divCategory.textContent = q.category;
         divQuestion.textContent = q.question;
@@ -257,7 +281,7 @@ function startQuiz() {
 
     function startTimer() {
 
-        let time = 20;
+        let time = 30;
 
         timerInterval = setInterval(() => {
             time--;
@@ -325,7 +349,14 @@ function startQuiz() {
         containerResult.classList.remove("hidden");
 
         // Afficher le score
-        const scoreText = `${score} / ${currentQuizQuestions.length}`;
+        let scoreText;
+
+        if (lifeModeActive) {
+            scoreText = `${score} 🔥`;
+        } else {
+            scoreText = `${score} / ${currentQuizQuestions.length}`;
+        }
+
         document.getElementById("scoreCircle").textContent = scoreText;
 
         // Afficher la catégorie ou mode vie
@@ -352,10 +383,19 @@ function startQuiz() {
         // =========================
         // MESSAGE MOTIVATION
         // =========================
-        document.getElementById("resultText").textContent =
-            score >= currentQuizQuestions.length * 0.7
-                ? "🔥 Excellent travail !"
-                : "💪 Continuez !";
+        const resultText = document.getElementById("resultText");
+
+        if (lifeModeActive) {
+            // MODE VIE → afficher badge
+            const badge = getLifeBadge(score);
+            resultText.textContent = `🎖 Badge obtenu : ${badge}`;
+        } else {
+            // MODE CLASSIQUE → message motivation
+            resultText.textContent =
+                score >= currentQuizQuestions.length * 0.7
+                    ? "🔥 Excellent travail !"
+                    : "💪 Continuez !";
+        }
 
         // =========================
         // BOUTON "Retour à l'accueil"

@@ -82,16 +82,16 @@ h2 {
     margin-bottom: 12px;
     font-size: 20px; /* senior readable */
     background: #23395b;
-    padding: 10px;
-    border-radius: 10px;
-    font-weight: bold;      
+    padding: 15px;
+    border-radius: 10px;    
     text-transform: uppercase; 
 }
 
 /* question */
 #question {
     font-size: 22px; /* senior readable */
-    margin-bottom: 12px;
+    font-weight: bold;  
+    margin: 25px 0;
 }
 
 /* answers */
